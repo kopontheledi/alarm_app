@@ -39,24 +39,22 @@ document.addEventListener("DOMContentLoaded", function () {
     alarmSound.currentTime = 0;
   }
 
-  setAlarmBtn.addEventListener('click', function() {
-alarmTimeInput.value = null;
-alarmTimeInput.focus();
-  }  )
+  setAlarmBtn.addEventListener("click", function () {
+    alarmTimeInput.value = null;
+    alarmTimeInput.focus();
+  });
 
-
-  saveAlarmBtn.addEventListener('click', function() {
-    const [hours, minutes] = alarmTimeInput.value.split(':');
+  saveAlarmBtn.addEventListener("click", function () {
+    const [hours, minutes] = alarmTimeInput.value(newDate());
     alarmTime.setHours(parseInt(hours));
     alarmTime.setMinutes(parseInt(minutes));
     alarmTime.setSeconds(0);
     alarmTime.setMilliseconds(0);
-stopAlarm();
+    stopAlarm();
   });
 
-  stopAlarmBtn.addEventListener('click', stopAlarm);
+  stopAlarmBtn.addEventListener("click", stopAlarm);
 
   updateTime();
   setInterval(updateTime, 1000);
-
 });
